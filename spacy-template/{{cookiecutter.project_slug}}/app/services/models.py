@@ -45,17 +45,14 @@ class AIModel(object):
 
         self.path = path
         self._load_local_model()        
-        self.compiled_re_to_clean_words = re.compile("((\’|\'|\`|\´)s|[^\w\s*])")
 
     def _load_local_model(self):
         # TODO: INCLUDE YOUR MODEL LOADING
         if torch.cuda.is_available():            
             
             #spacy.require_gpu()  # this will fail if gpu is not present
-            gpu = spacy.prefer_gpu()
-            print('CUDA HARDWARE DETECTED!: GPU:', gpu)
-            #device = torch.cuda.current_device()
-            #logger.info("CUDA HARDWARE DETECTED!. Using device {}".format(device))
+            gpu = spacy.prefer_gpu()            
+            logger.info("CUDA HARDWARE DETECTED!. Using device {}".format(gpu))
         else: 
             logger.info("cuda hardware not detected")
 
@@ -90,7 +87,7 @@ class AIModel(object):
 
         return retorno
 
-    def _post_process(self, list_of_orgs: Dict[int,ClassificationResult]) -> AIPredictionResult:
+    def _post_process(self, data: Dict[int,ClassificationResult]) -> AIPredictionResult:
         """
         It returns the AIPredictionResult
 
@@ -99,49 +96,11 @@ class AIModel(object):
         """
         logger.debug("Post-processing prediction.")
         
-        hpp = AIPredictionResult(result=list_of_orgs)
+        hpp = AIPredictionResult(result=data)
         return hpp
+   
 
-    def _extract_orgs(self, doc) -> List:
-        retorno = []
-        for entity in doc.ents:
-            if entity.label_ == 'ORG':
-                retorno.append(entity.text)
-
-        # remove duplicates(if any)
-        retorno = list(set(retorno))
-        return retorno
-
-    def _get_orgs_from_paragraph(self, features: dict) -> Dict[int,ClassificationResult]:
-        """
-        Returns a dictionary with the ClassificationResults
-
-        Args:
-            features (dict): Dict <id_paragraph,paragraph text>
-        Returns:
-            dict[int,ClassificationResults]: <id_paragraph, organizations_mentioned_in_the_paragraph>
-        """
-        logger.debug("Extracting tokens...")        
-
-        retorno={}
-        for i in features:
-            orgs = []
-            for j in range(len(features[i])):
-                orgs.append(self._extract_orgs(features[i][j]))
-
-            # Aplanamos la lista de listas que tenemos aqui
-            tmp = [org for sublist in orgs for org in sublist]
-            
-            # remove duplicates(if any)
-            tmp = list(set(tmp))
-            cleaned_tmp = self._clean_orgs(tmp)
-            cr = ClassificationResult(orgs=tmp, orgs_cleaned=cleaned_tmp)
-
-            retorno[i]=cr
-
-        return retorno
-
-    def _clean_orgs(self, list_of_orgs: List[str]) -> List[str]:    
+    def _clean(self, list_of_orgs: List[str]) -> List[str]:    
         """
         Cleans up the list of phrases, removing unncesary characters and duplicates
         """
@@ -149,7 +108,7 @@ class AIModel(object):
         retorno = list(set(retorno))
         return retorno
     
-    def get_list_of_orgs(self, payload: AIPredictionPayload):
+    def predict(self, payload: AIPredictionPayload):
         """
         Main method. 
 
@@ -158,39 +117,21 @@ class AIModel(object):
 
         Returns:
             AIPredictionResult: Result object with the list of organizations and in which paragraph has been detected
-
-            {
-                "result": {
-                    "0": {
-                        "orgs": [
-                            "Tesla",
-                            "Coinbase"
-                        ]
-                    },
-                    "1": {
-                        "orgs": []
-                    },
-                    ...
-                }
-            }
+           
         """
         if payload is None:
             raise ValueError(NO_VALID_PAYLOAD.format(payload))
 
         try:
-            list_of_docs = self._pre_process(payload)
-            # here i have a list with all the classifications
-            paragraph_orgs = self._get_orgs_from_paragraph(list_of_docs)
-            
-            logger.info(paragraph_orgs)
+            pre_processed = self._pre_process(payload)                     
+          
             # now i´m getting the last value as a single unique value for all the classification
-            post_processed_result = self._post_process(paragraph_orgs)
+            post_processed_result = self._post_process(pre_processed)
             
         except Exception as e:            
             #logger.exception(traceback.print_exc())
             logger.exception(e)
             self.app_insights.exception(e)
-            #return JSONResponse(status_code=status.HTTP_409_CONFLICT, content=jsonable_encoder({"detail": traceback.print_exc()}))
             raise e
             
             
