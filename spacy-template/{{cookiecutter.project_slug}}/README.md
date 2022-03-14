@@ -7,31 +7,39 @@
 </div>
 
 <a href="https://mvp.microsoft.com/es-es/PublicProfile/5000312?fullName=Enrique%20Catala"><img src="https://raw.githubusercontent.com/enriquecatala/enriquecatala/master/img/MVP_Logo_horizontal.png" alt="Microsoft DataPlatform MVP Enrique Catalá"></a>
-# fastapi-ai-template
-FastAPI ai templates to deploy AI models
+# {{ cookiecutter.project_slug }}
 
+This is the template I use to expose my own deep neural networks in production.
+
+This project includes a template for expose an Artificial Inteligence model composed by your own keras model, through a FastAPI API Rest configuration **ready for production**.
+
+The output is a container ready to **deploy in your kubernetes cluster**.
 
 ## Setup
 
-### Install cookiecutter
-
-This template requires [cookiecutter](https://cookiecutter.readthedocs.io/en/latest/README.html) to be [installed](https://cookiecutter.readthedocs.io/en/latest/installation.html).
-
-#### Spacy project
-Once [installed](https://cookiecutter.readthedocs.io/en/latest/installation.html), you can run the following command to create a new project:
-
-```bash
-cookiecutter https://github.com/enriquecatala/python-fastapi-template.git -v --directory="spacy-template"
+1. In the docker-compose.yml, go and configure the API_KEY. <br>
+   A sample API key can be generated using Python REPL:
+```python
+import uuid
+print(str(uuid.uuid4()))
 ```
 
-```bash
-# --no-input
-cookiecutter ../git/fastapi-ai-template/ -v --no-input --directory="spacy-template"
-```
-## What is included on this template?
-🖼️ The base to start an openapi project for AI: spacy/huggingface, Typer, FastAPI.
-🐋 A Dockerfile to build a container image for your project.
-If you want to contribute to this template please open an issue or fork and send a PULL REQUEST.
+### Optional performance parameters
 
-❤️ [Sponsor this project](https://github.com/sponsors/enriquecatala)
+You can fine tune your webserver by configuring the [boot.sh](boot.sh)
 
+## Setup your model
+
+Go to the [services/models.py](app/services/models.py) and add your own code
+
+## Test your API
+
+1. Go to http://127.0.0.1:{{ cookiecutter.port }}/docs
+2. Click on the "lock" icon 
+   
+   ![lock icon](assets/images/lock.png)
+3. Write your API key
+   
+   ![api-key](assets/images/api-key.png)
+   
+4. Have fun!
