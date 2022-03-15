@@ -23,9 +23,12 @@ You **don´t need to fork this project**. This project is a template for cookiec
 
 
 ## What is included on this template?
+
 🖼️ The base to start an openapi project for AI: [spacy](#create-your-own-fastapi-for-spacy)/huggingface, FastAPI.
+
 🐋 A Dockerfile+docker-compose to build the container image for your project.
 If you want to contribute to this template please open an issue or fork and send a PULL REQUEST.
+
 ⏯ Visual studio code _launch.json_ and _tasks.json_ to [debug the project in VS Code with container support](https://docs.microsoft.com/en-us/visualstudio/containers/edit-and-refresh?view=vs-2022)
 
 
