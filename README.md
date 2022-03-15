@@ -13,6 +13,7 @@
   - [Setup](#setup)
     - [Install cookiecutter](#install-cookiecutter)
     - [FastAPI + spacy template](#fastapi--spacy-template)
+    - [Project template parameters](#project-template-parameters)
 
 # fastapi-ai-template
 FastAPI ai templates to deploy AI models.
@@ -51,7 +52,7 @@ cookiecutter https://github.com/enriquecatala/fastapi-ai-template.git \
              --directory="spacy-template"
 ```
 
-This will create the following files:
+After asking you for parameter configuration values, it will create the following files:
 ```bash
 your-project/
 ├── fastapi-ai-template/  <--------- Project template 
@@ -71,7 +72,9 @@ your-project/
     └── ...    
 ```
 
-Executing the cookiecutter command will ask you for some information. The default values are stored inside the [cookiecutter.json](spacy-template/cookiecutter.json) file, so you can edit it or type accordingly the values you want from the command promt.
+### Project template parameters
+
+Executing the cookiecutter command **will ask you in the command prompt** for all the parameters defined in the [cookiecutter.json](spacy-template/cookiecutter.json) file. Default values are the following:
 
 ```json
 {
@@ -85,8 +88,8 @@ Executing the cookiecutter command will ask you for some information. The defaul
     "repo_name": "fastapi-ai-template",
     "project_short_description": "FastAPI template generator for AI projects. It generates a template for a FastAPI project with a simple and easy to use interface.",        
     "version": "0.1.0",
-    "application_insights_key": "a589f195-43c0-478d-bd95-bd3c9867d597",
-    "api_key": "dfaed9ad-e157-49cx-8459-4ecafe134067",
+    "application_insights_key": "USE A VALID APP INSIGHTS KEY",
+    "api_key": "WRITE YOUR OWN API KEY :)",
     "_copy_without_render": [      
       "model-best"
   ]

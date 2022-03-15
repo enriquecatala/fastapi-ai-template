@@ -9,8 +9,8 @@
     "repo_name": "fastapi-ai-template",
     "project_short_description": "FastAPI template generator for AI projects. It generates a template for a FastAPI project with a simple and easy to use interface.",        
     "version": "0.1.0",
-    "application_insights_key": "a589f195-43c0-478d-bd95-bd3c9867d597",
-    "api_key": "dfaed9ad-e157-49cx-8459-4ecafe134067",
+    "application_insights_key": "USE A VALID APPLICATION INSIGHTS KEY",
+    "api_key": "USE A VALID API_KEY",
     "_copy_without_render": [      
       "model-best"
   ]
