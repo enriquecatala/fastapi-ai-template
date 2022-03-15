@@ -18,8 +18,7 @@
     - [Project template parameters](#project-template-parameters)
 
 # fastapi-ai-template
-FastAPI ai templates to deploy AI models.
-❤️ [Sponsor this project](https://github.com/sponsors/enriquecatala)
+FastAPI ai templates to deploy AI models. ❤️ [Sponsor this project](https://github.com/sponsors/enriquecatala)
 
 You **don´t need to fork this project**. This project is a template for cookiecutter that can be [used directly from your command line without forking it](#setup). The output of this project is a fully configured FastAPI application ready for you to start coding and deploy.
 
