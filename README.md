@@ -15,6 +15,8 @@
   - [Setup](#setup)
     - [Install cookiecutter](#install-cookiecutter)
     - [FastAPI + spacy template](#fastapi--spacy-template)
+    - [FastAPI + huggingface template](#fastapi--huggingface-template)
+    - [Configuration](#configuration)
     - [Project template parameters](#project-template-parameters)
 
 # fastapi-ai-template
@@ -55,6 +57,11 @@ cookiecutter https://github.com/enriquecatala/fastapi-ai-template.git \
              -v \
              --directory="spacy-template"
 ```
+
+### FastAPI + huggingface template
+
+TODO
+### Configuration
 
 After asking you for parameter configuration values, it will create the following files:
 ```bash
