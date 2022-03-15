@@ -12,20 +12,21 @@
   - [What is included on this template?](#what-is-included-on-this-template)
   - [Setup](#setup)
     - [Install cookiecutter](#install-cookiecutter)
-    - [Create your own fastapi for spacy](#create-your-own-fastapi-for-spacy)
+    - [FastAPI + spacy template](#fastapi--spacy-template)
 
 # fastapi-ai-template
 FastAPI ai templates to deploy AI models.
+❤️ [Sponsor this project](https://github.com/sponsors/enriquecatala)
 
-You **don´t need to fork this project**. This project is a template for cookiecutter that can be used directly from your command line. The output of this project is a fully configured FastAPI application ready for you to start coding and deploy.
+You **don´t need to fork this project**. This project is a template for cookiecutter that can be [used directly from your command line without forking it](#setup). The output of this project is a fully configured FastAPI application ready for you to start coding and deploy.
 
 
 ## What is included on this template?
-🖼️ The base to start an openapi project for AI: spacy/huggingface, Typer, FastAPI.
-🐋 A Dockerfile to build a container image for your project.
+🖼️ The base to start an openapi project for AI: [spacy](#create-your-own-fastapi-for-spacy)/huggingface, FastAPI.
+🐋 A Dockerfile+docker-compose to build the container image for your project.
 If you want to contribute to this template please open an issue or fork and send a PULL REQUEST.
+⏯ Visual studio code _launch.json_ and _tasks.json_ to [debug the project in VS Code with container support](https://docs.microsoft.com/en-us/visualstudio/containers/edit-and-refresh?view=vs-2022)
 
-❤️ [Sponsor this project](https://github.com/sponsors/enriquecatala)
 
 
 
@@ -36,21 +37,38 @@ Since this is a template for cookiecutter, you need first to install cookiecutte
 
 This template requires [cookiecutter](https://cookiecutter.readthedocs.io/en/latest/README.html) to be [installed](https://cookiecutter.readthedocs.io/en/latest/installation.html).
 
-### Create your own fastapi for spacy
+### FastAPI + spacy template
 Once [installed](https://cookiecutter.readthedocs.io/en/latest/installation.html), you can run the following command to create a new project:
 
 ```bash
+# go to the directory where you want to create the project
 cd ~
 mkdir your-project
 cd your-project
-cookiecutter https://github.com/enriquecatala/fastapi-ai-template.git -v --directory="spacy-template"
+# create your project using this template
+cookiecutter https://github.com/enriquecatala/fastapi-ai-template.git \
+             -v \
+             --directory="spacy-template"
 ```
 
-this will create the 
+This will create the following files:
 ```bash
 your-project/
 ├── fastapi-ai-template/  <--------- Project template 
-    └── ...
+    └── .vs-code/         <--------- visual studio debug config 
+        ├── launch.json        
+        └── tasks.json
+    └── app/              <--------- Project folder 
+        ├── api/          <--------- api routing
+        ├── core/         <--------- event handling and security
+        ├── models/       <--------- Model classes definition
+        ├── services/     <--------- API main methods (this is where you have the main logic)
+        └── main.py
+    ├── Dockerfile 
+    ├── docker-compose.yml 
+    ├── gunicorn_conf.py  <--------- web server config
+    ├── requirements.txt  <--------- default libraries
+    └── ...    
 ```
 
 Executing the cookiecutter command will ask you for some information. The default values are stored inside the [cookiecutter.json](spacy-template/cookiecutter.json) file, so you can edit it or type accordingly the values you want from the command promt.
