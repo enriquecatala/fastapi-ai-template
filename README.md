@@ -14,6 +14,7 @@
   - [What is included on this template?](#what-is-included-on-this-template)
   - [Setup](#setup)
     - [Install cookiecutter](#install-cookiecutter)
+    - [FastAPI base template](#fastapi-base-template)
     - [FastAPI + spacy template](#fastapi--spacy-template)
     - [FastAPI + huggingface template](#fastapi--huggingface-template)
     - [Configuration](#configuration)
@@ -43,6 +44,31 @@ Since this is a template for cookiecutter, you need first to install cookiecutte
 ### Install cookiecutter
 
 This template requires [cookiecutter](https://cookiecutter.readthedocs.io/en/latest/README.html) to be [installed](https://cookiecutter.readthedocs.io/en/latest/installation.html).
+
+### FastAPI base template
+
+Once [installed](https://cookiecutter.readthedocs.io/en/latest/installation.html), you can run the following command to create a new project:
+
+```bash
+# go to the directory where you want to create the project
+cd ~
+mkdir your-project
+cd your-project
+# create your project using this template
+cookiecutter https://github.com/enriquecatala/fastapi-ai-template.git \
+             -v \
+             --directory="base-template"
+```
+
+This will create a base ApiREST project ready for you to test and deploy. It will include a _test method_ that you can use to test your code.
+
+```bash
+docker compose build
+docker compose up
+```
+Now navigate to http://127.0.0.1:5000/docs to see the documentation.
+
+
 
 ### FastAPI + spacy template
 Once [installed](https://cookiecutter.readthedocs.io/en/latest/installation.html), you can run the following command to create a new project:
