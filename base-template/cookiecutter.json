@@ -1,0 +1,18 @@
+{
+    "full_name": "Enrique Catalá Bañuls",
+    "email": "enrique@enriquecatala.com",
+    "project_name": "FastAPI base template",
+    "project_slug": "{{ cookiecutter.project_name|lower|replace(' ', '-') }}",
+    "project_role": "fastapi API",
+    "container_name": "fastapi-ecb-api",
+    "port": "5000",
+    "repo_name": "fastapi-template",
+    "project_short_description": "FastAPI template generator projects. It generates a template for a FastAPI project with a helloworld.",        
+    "version": "0.1.0",
+    "application_insights_key": "11111111-1111-1111-1111-111111111111",
+    "api_key": "22222222-2222-2222-2222-222222222222",
+    "_copy_without_render": [      
+      "data"
+  ]
+}
+  

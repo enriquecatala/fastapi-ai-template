@@ -20,7 +20,7 @@
             },
             "env": {
                 "API_KEY": "{{ cookiecutter.api_key }}",
-                "DEFAULT_MODEL_PATH": "/app/model-best/model-best/",
+                "DATA_PATH": "/app/data/",
                 "APPLICATION_INSIGHTS_KEY": "{{ cookiecutter.application_insights_key }}",
                 "WORKERS_PER_CORE": "0.25",
                 "LOG_LEVEL": "debug",

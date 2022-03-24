@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  ner-api:
+    container_name: {{ cookiecutter.container_name }}
+    build:
+      context: .
+      dockerfile: Dockerfile      
+    environment:
+      WORKERS_PER_CORE: "0.125"     #https://hub.docker.com/r/tiangolo/uvicorn-gunicorn-fastapi
+      LOG_LEVEL: "debug"      # debug|info|warning|error|critical      
+      IS_DEBUG: false
+      API_KEY: {{ cookiecutter.api_key }}
+      DATA_PATH: /app/data/
+      APPLICATION_INSIGHTS_KEY: {{ cookiecutter.application_insights_key }}
+    ports:
+      - "{{ cookiecutter.port }}:80"    
+    volumes:
+      - ./data:/app/data
+    
