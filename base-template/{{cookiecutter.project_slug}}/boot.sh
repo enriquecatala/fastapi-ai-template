@@ -15,7 +15,7 @@
 
 MODULE=app.main
 APP=app      
-NAME=PythonAPI
+NAME={{ cookiecutter.project_slug }}
 
 
 

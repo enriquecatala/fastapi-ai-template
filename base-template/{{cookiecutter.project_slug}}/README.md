@@ -7,18 +7,21 @@
 </div>
 
 <a href="https://mvp.microsoft.com/es-es/PublicProfile/5000312?fullName=Enrique%20Catala"><img src="https://raw.githubusercontent.com/enriquecatala/enriquecatala/master/img/MVP_Logo_horizontal.png" alt="Microsoft DataPlatform MVP Enrique Catalá"></a>
+
+>Author: [Enrique Catalá](https://www.linkedin.com/in/enriquecatala)
+
 # {{ cookiecutter.project_slug }}
 
-This is the template I use to expose my own deep neural networks in production.
+This RestAPI app has been created using [FastAPI base template](https://github.com/enriquecatala/fastapi-ai-template). 
 
-This project includes a template for expose an Artificial Inteligence model composed by your own keras model, through a FastAPI API Rest configuration **ready for production**.
+>Please consider ❤️ [Sponsoring this project](https://github.com/sponsors/enriquecatala)
 
 The output is a container ready to **deploy in your kubernetes cluster**.
 
 ## Setup
 
-1. In the docker-compose.yml, go and configure the API_KEY. <br>
-   A sample API key can be generated using Python REPL:
+1. In the [docker-compose.yml](./docker-compose.yml), go and configure all the _environment variables_, specially the API_KEY. <br>
+   A sample API key can be generated using for example:
 ```python
 import uuid
 print(str(uuid.uuid4()))

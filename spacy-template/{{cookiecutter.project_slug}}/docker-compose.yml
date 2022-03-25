@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  ner-api:
+  {{ cookiecutter.docker_service_name }}:
     container_name: {{ cookiecutter.container_name }}
     build:
       context: .

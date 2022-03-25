@@ -8,8 +8,6 @@
 
 <a href="https://mvp.microsoft.com/es-es/PublicProfile/5000312?fullName=Enrique%20Catala"><img src="https://raw.githubusercontent.com/enriquecatala/enriquecatala/master/img/MVP_Logo_horizontal.png" alt="Microsoft DataPlatform MVP Enrique Catalá"></a>
 
-> Author: Enrique Catalá Bañuls
-
 - [fastapi-ai-template](#fastapi-ai-template)
   - [What is included on this template?](#what-is-included-on-this-template)
   - [Setup](#setup)
@@ -20,6 +18,7 @@
     - [Configuration](#configuration)
     - [Project template parameters](#project-template-parameters)
 
+> Author: [Enrique Catalá Bañuls](https://www.linkedin.com/in/enriquecatala)
 # fastapi-ai-template
 FastAPI ai templates to deploy AI models. ❤️ [Sponsor this project](https://github.com/sponsors/enriquecatala)
 

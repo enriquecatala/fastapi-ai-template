@@ -7,7 +7,19 @@
 </div>
 
 <a href="https://mvp.microsoft.com/es-es/PublicProfile/5000312?fullName=Enrique%20Catala"><img src="https://raw.githubusercontent.com/enriquecatala/enriquecatala/master/img/MVP_Logo_horizontal.png" alt="Microsoft DataPlatform MVP Enrique Catalá"></a>
+
+- [{{ cookiecutter.project_slug }}](#-cookiecutterproject_slug-)
+  - [Setup](#setup)
+    - [Optional performance parameters](#optional-performance-parameters)
+  - [Setup your model](#setup-your-model)
+  - [Test your API](#test-your-api)
+
+>Author: [Enrique Catalá](https://www.linkedin.com/in/enriquecatala)
 # {{ cookiecutter.project_slug }}
+
+This RestAPI app has been created using [FastAPI base template](https://github.com/enriquecatala/fastapi-ai-template). 
+
+>Please consider ❤️ [Sponsoring this project](https://github.com/sponsors/enriquecatala)
 
 This is the template I use to expose my own deep neural networks in production.
 

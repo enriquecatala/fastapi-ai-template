@@ -5,6 +5,7 @@
     "project_slug": "{{ cookiecutter.project_name|lower|replace(' ', '-') }}",
     "project_role": "fastapi API",
     "container_name": "fastapi-ecb-api",
+    "docker_service_name": "fastapi-ecb-api",
     "port": "5000",
     "repo_name": "fastapi-ai-template",
     "project_short_description": "FastAPI template generator for AI projects. It generates a template for a FastAPI project with a simple and easy to use interface.",        
