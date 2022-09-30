@@ -1,5 +1,5 @@
 # To ensure app dependencies are ported from your virtual environment/host machine into your container, run 'pip freeze > requirements.txt' in the terminal to overwrite this file
-fastapi[all]>=0.68.0
+fastapi[all]>=0.85.0
 uvicorn[standard]>=0.13.4
 gunicorn>=20.1.0
 typing
@@ -9,14 +9,13 @@ numpy>=1.21.2
 loguru>=0.5.3
 joblib>=1.0.1
 pandas>=1.3.3
-typer==0.4.0
+typer>=0.4.0
 # Your modules
-transformers==4.10.2 # desplite spacy-transformers dependency, I want to use a newer version
-spacy[transformers]==3.1.2
-#spacy-transformers==1.0.6
+transformers==4.22.1 # desplite spacy-transformers dependency, I want to use a newer version
+spacy[transformers]==3.4.1
 # AppInsights library
 opencensus
 opencensus-ext-azure
 opencensus-ext-logging
 # pytorch WITHOUT CUDA
-torch==1.9.0+cpu 
+torch>=1.9.0
