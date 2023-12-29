@@ -11,7 +11,7 @@ joblib>=1.0.1
 pandas>=1.3.3
 typer>=0.4.0
 # Your modules
-transformers==4.30.0 # desplite spacy-transformers dependency, I want to use a newer version
+transformers==4.36.0 # desplite spacy-transformers dependency, I want to use a newer version
 spacy[transformers]==3.4.1
 # AppInsights library
 opencensus
